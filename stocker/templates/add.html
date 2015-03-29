@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Add a Stock Ticker</title>
+
+<form action="/add" method="post">
+	{% if ticker %}
+		{{ticker}} Successfully added!
+	{% endif %}
+	<p>
+	Enter Stock Ticker: <input type="text" name="ticker">
+	<input type="submit" value="Submit">
+</form>
