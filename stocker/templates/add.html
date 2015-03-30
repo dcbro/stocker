@@ -2,8 +2,10 @@
 <title>Add a Stock Ticker</title>
 
 <form action="/add" method="post">
-	{% if ticker %}
+	{% if not error %}
 		{{ticker}} Successfully added!
+	{% else %}
+		{{error}}
 	{% endif %}
 	<p>
 	Enter Stock Ticker: <input type="text" name="ticker">

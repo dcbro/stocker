@@ -18,6 +18,7 @@ class Ticker(db.Model):
 class Stocks(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	ticker = db.Column(db.String(5), db.ForeignKey('ticker.ticker'))
+	date = db.Column(db.DateTime)
 	openp = db.Column(db.Float)
 	high = db.Column(db.Float)
 	low = db.Column(db.Float)
@@ -26,8 +27,9 @@ class Stocks(db.Model):
 	adjusted_close = db.Column(db.Float)
 	timestamp = db.Column(db.DateTime)
 
-	def __init__(self, ticker, openp, high, low, close, volume, adjusted_close, timestamp=None):
-		self.ticker = tickerp
+	def __init__(self, ticker, date, openp, high, low, close, volume, adjusted_close, timestamp=None):
+		self.ticker = ticker
+		self.date = date
 		self.openp = openp
 		self.high = high
 		self.low = low
@@ -35,8 +37,8 @@ class Stocks(db.Model):
 		self.volume = volume
 		self.adjusted_close = adjusted_close
 		if timestamp is None:
-			timesstamp = datetime.utcnow()
-		self.timestamp = timestam
+			timestamp = datetime.utcnow()
+		self.timestamp = timestamp
 	
 	def __repr__(self):
 		return '<Stocks %r>' % self.ticker
@@ -58,7 +60,7 @@ class RSI(db.Model):
 		self.avg_14_down = avg_14_down
 		self.rsi = rsi
 		if timestamp is None:
-			timesstamp = datetime.utcnow()
+			timestamp = datetime.utcnow()
 		self.timestamp = timestamp
 
 	def __repr__(self):
