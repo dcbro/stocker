@@ -1,13 +1,13 @@
 <!doctype html>
 <title>Add a Stock Ticker</title>
 
-<form action="/add" method="post">
-	{% if not error %}
+	{% if ticker%}
 		{{ticker}} Successfully added!
-	{% else %}
+	{% elif error %}
 		{{error}}
 	{% endif %}
 	<p>
+<form action="/add" method="post">
 	Enter Stock Ticker: <input type="text" name="ticker">
 	<input type="submit" value="Submit">
 </form>
