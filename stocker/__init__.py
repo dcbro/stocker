@@ -1,5 +1,5 @@
-#!/usr/bin/python
-from flask import Flask, session, g, redirect, url_for, abort, flash
+#!/var/www/stocker/venv/bin/python
+from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
